@@ -33,11 +33,11 @@ def dance_shuffle(members):
     return shuffle
 
 
-print(dance_shuffle(["Nahum", "Yonatan", "Hana", "Noam"]))
+dance_shuffle(["Nahum", "Yonatan", "Hana", "Noam"])
 # יכול להחזיר: ['Yonatan', 'Noam', 'Nahum', 'Hana']
-print(dance_shuffle(["Sarah", "John", "Dana"]))
+dance_shuffle(["Sarah", "John", "Dana"])
 #  יחזיר: Cannot shuffle
-print(dance_shuffle(["Tamir", "Sophie", "Eden", "Tamir"]))
+dance_shuffle(["Tamir", "Sophie", "Eden", "Tamir"])
 # יחזיר: No duplicates
-print(dance_shuffle(["Ron", "James", "Jasmine", "Elisha", "Leah", "Jacob", "Dorit"]))
+dance_shuffle(["Ron", "James", "Jasmine", "Elisha", "Leah", "Jacob", "Dorit"])
 # יכול להחזיר: ['James', 'Elisha', 'Jacob', 'Ron', 'Dorit', 'Jasmine', 'Leah']
