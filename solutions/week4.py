@@ -15,6 +15,7 @@ import math
 #  יאללה, תוציאו מחשב, תפתחו את ה-IDE, ותתחילו לפתור!🔥🏅
 
 
+# פתרון ראשוני שלי. לא יעיל בכלל
 def reversed_factorial(factorial):
     num = 1
     while math.factorial(num) < factorial:
@@ -25,6 +26,7 @@ def reversed_factorial(factorial):
     return -1
 
 
+# פתרון משודרג.
 def most_efficient_reversed_factorial(factorial):
     num = 1
     while factorial % num == 0:
