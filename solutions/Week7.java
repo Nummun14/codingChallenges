@@ -1,19 +1,19 @@
 package solutions;
 
 public class Week7 {
-    public static int calculateMinimumBreaks(int w, int l) {
-        if (w < 1 || l < 1)
+    public static int calculateMinimumBreaks(double width, double length) {
+        if (width < 1 || length < 1)
             return -1;
-        return (w * l) - 1;
+        return (width * length) - 1;
     }
 
-    public static int calculateMinimumBreaks(double w, double l, double minSize) {
-        if (w < minSize || l < minSize || w % minSize != 0 || l % minSize != 0)
+    public static int calculateMinimumBreaks(double width, double length, double squareSize) {
+        if (width < squareSize || length < squareSize || width % squareSize != 0 || length % squareSize != 0)
             return -1;
 
-        w /= minSize;
-        l /= minSize;
-        return (int) (w * l) - 1;
+        width /= squareSize;
+        length /= squareSize;
+        return (int) (width * length) - 1;
     }
 
     public static void main(String[] args) {
