@@ -19,6 +19,7 @@ public class Week7 {
 //            📢 פתרתם? שתפו את הקוד שלכם כאן! 💬💡
 //            יאללה, תוציאו מצה – ותתחילו לשבור!
 //    בהצלחה!
+
     public static int calculateMinimumBreaks(double width, double length) {
         if (width < 1 || length < 1)
             return -1;
