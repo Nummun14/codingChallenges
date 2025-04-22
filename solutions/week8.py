@@ -1,5 +1,9 @@
 import string
 
+first_row = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]"]
+second_row = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"]
+third_row = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"]
+rows = [first_row, second_row, third_row]
 # 🔒 אתגר הסיסמה הבטוחה! 🦺
 # ידעתם ש־"123456" זו עדיין אחת הסיסמאות הכי נפוצות בעולם?
 # אנשים נוטים לבחור סיסמאות פשוטות, ולפעמים צריך לעזור להם לבחור אחת באמת טובה.
@@ -18,7 +22,7 @@ import string
 # 🎲 בונוס: תדפיסו גם למה הסיסמה לא עברה את הבדיקה.
 #
 # פתרתם? שתפו את הקוד שלכם כאן! 💬💡
-# יאללה, תפתחו מחשב, תקלידו את הסיסמא, ותבדקו אם היא שווה משהו. בהצלחה!
+# יאללה, תפתחו מחשב, תקלידו את הסיסמא, ותבדקו אם היא שווה משהו. בהצלחה!
 
 
 def is_valid_password(password):
@@ -34,18 +38,24 @@ def is_valid_password(password):
     if password.islower() or password.isupper():
         print("Password must contain both uppercase and lowercase letters")
         return False
-    has_numbers = False
-    has_punctuation = password[-1] in string.punctuation
-    for i in range(len(password) - 1):
+    has_numbers = password[-1].isdigit() or password[-2].isdigit()
+    has_punctuation = password[-1] in string.punctuation or password[-2] in string.punctuation
+    for i in range(len(password) - 2):
         char = password[i]
         if char.isdigit():
             has_numbers = True
-            if password[i + 1].isdigit():
-                if abs(int(password[i + 1]) - int(char)) == 1:
-                    print("Two consecutive digits aren't allowed")
+            if password[i + 1].isdigit() and password[i + 2].isdigit():
+                if abs(int(password[i + 1]) - int(char)) == 1 and abs(int(password[i + 1]) - int(password[i + 2])) == 1:
+                    print("Three consecutive digits aren't allowed")
                     return False
         if char in string.punctuation and not has_punctuation:
             has_punctuation = True
+        for row in rows:
+            if char in row and password[i + 1] in row and password[i + 2] in row:
+                if abs(row.index(char) - row.index(password[i + 1])) == 1 and abs(row.index(password[i + 1]) - row.index(password[i + 2])) == 1:
+                    print("Three consecutive letters on the keyboard are not allowed")
+                    return False
+                break
     if not has_numbers or not has_punctuation:
         print("Password must have punctuation and numbers")
         return False
