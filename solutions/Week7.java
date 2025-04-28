@@ -21,9 +21,7 @@ public class Week7 {
 //    בהצלחה!
 
     public static int calculateMinimumBreaks(double width, double length) {
-        if (width < 1 || length < 1)
-            return -1;
-        return (width * length) - 1;
+        return calculateMinimumBreaks(width, length, 1);
     }
 
     public static int calculateMinimumBreaks(double width, double length, double squareSize) {
